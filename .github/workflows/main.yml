@@ -1,0 +1,19 @@
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run workflow dispatch
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
